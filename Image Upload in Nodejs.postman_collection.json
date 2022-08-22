@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "f2a2cc47-2075-4be1-bab4-c5bfac3db974",
+		"name": "Image Upload in Nodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18355842"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": "/C:/Users/deepc/Pictures/Screenshots/School List.png"
+						},
+						{
+							"key": "name",
+							"value": "Deep",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "deep@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/upload",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/deepc/Pictures/Screenshots/School List.png"
+								},
+								{
+									"key": "name",
+									"value": "Deep",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "deep@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "328"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"148-14BqZSwJoudbApbnGzot8qc7nCk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Aug 2022 14:25:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"payload_files\": [\n        {\n            \"fieldname\": \"images\",\n            \"originalname\": \"School List.png\",\n            \"encoding\": \"7bit\",\n            \"mimetype\": \"image/png\",\n            \"destination\": \"uploads\",\n            \"filename\": \"images-1661178308517School List.png\",\n            \"path\": \"uploads\\\\images-1661178308517School List.png\",\n            \"size\": 415306\n        }\n    ],\n    \"payload_body\": {\n        \"name\": \"Deep\",\n        \"email\": \"deep@gmail.com\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
