@@ -20,6 +20,11 @@
 							"src": "/C:/Users/deepc/Pictures/Screenshots/School List.png"
 						},
 						{
+							"key": "images2",
+							"type": "file",
+							"src": "/C:/Users/deepc/Pictures/Screenshots/Screenshot (4).png"
+						},
+						{
 							"key": "name",
 							"value": "Deep",
 							"type": "text"
@@ -55,6 +60,11 @@
 									"key": "images",
 									"type": "file",
 									"src": "/C:/Users/deepc/Pictures/Screenshots/School List.png"
+								},
+								{
+									"key": "images2",
+									"type": "file",
+									"src": "/C:/Users/deepc/Pictures/Screenshots/Screenshot (4).png"
 								},
 								{
 									"key": "name",
@@ -93,15 +103,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "328"
+							"value": "605"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"148-14BqZSwJoudbApbnGzot8qc7nCk\""
+							"value": "W/\"25d-98ExvfD6akBuYDWYarkz5aOwUPQ\""
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 22 Aug 2022 14:25:08 GMT"
+							"value": "Tue, 23 Aug 2022 06:19:29 GMT"
 						},
 						{
 							"key": "Connection",
@@ -113,7 +123,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"success\": true,\n    \"payload_files\": [\n        {\n            \"fieldname\": \"images\",\n            \"originalname\": \"School List.png\",\n            \"encoding\": \"7bit\",\n            \"mimetype\": \"image/png\",\n            \"destination\": \"uploads\",\n            \"filename\": \"images-1661178308517School List.png\",\n            \"path\": \"uploads\\\\images-1661178308517School List.png\",\n            \"size\": 415306\n        }\n    ],\n    \"payload_body\": {\n        \"name\": \"Deep\",\n        \"email\": \"deep@gmail.com\"\n    }\n}"
+					"body": "{\n    \"success\": true,\n    \"payload_files\": {\n        \"images\": [\n            {\n                \"fieldname\": \"images\",\n                \"originalname\": \"School List.png\",\n                \"encoding\": \"7bit\",\n                \"mimetype\": \"image/png\",\n                \"destination\": \"uploads\",\n                \"filename\": \"images-1661235559594-School List.png\",\n                \"path\": \"uploads\\\\images-1661235559594-School List.png\",\n                \"size\": 415306\n            }\n        ],\n        \"images2\": [\n            {\n                \"fieldname\": \"images2\",\n                \"originalname\": \"Screenshot (4).png\",\n                \"encoding\": \"7bit\",\n                \"mimetype\": \"image/png\",\n                \"destination\": \"uploads\",\n                \"filename\": \"images2-1661235569944-Screenshot (4).png\",\n                \"path\": \"uploads\\\\images2-1661235569944-Screenshot (4).png\",\n                \"size\": 225190\n            }\n        ]\n    },\n    \"payload_body\": {\n        \"name\": \"Deep\",\n        \"email\": \"deep@gmail.com\"\n    }\n}"
 				}
 			]
 		}

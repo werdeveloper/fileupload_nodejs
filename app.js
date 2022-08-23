@@ -12,21 +12,28 @@ const storage = multer.diskStorage({
   }
 });
 const maxSize = 10 * 1024 * 1024; // for 10MB
+const allowedFileType = ["image/png", "image/jpg", "image/jpeg"]; // Allowed the files
 const upload = multer({
         storage: storage,
         fileFilter: (req, file, cb) => {
-            if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-            cb(null, true);
-            } else {
-            cb(null, false);
-            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+            if (allowedFileType.indexOf(file.mimetype) != -1) {
+              cb(null, true);
+            } 
+            else {
+              cb(null, false);
+              return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
             }
         },
         limits: { fileSize: maxSize }
 });
 
 // Route
-app.post("/upload", upload.array("images"), function (req, res, next) {
+app.post("/upload",
+upload.fields([
+  {name: 'images', maxCount: 1},   // images is field name
+  {name: 'images2', maxCount: 1}   // images2 is field name
+]),
+ function (req, res, next) {
     res.json({
       success: true,
       payload_files: req.files,
