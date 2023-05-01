@@ -1,44 +1,34 @@
 const express = require("express");
 const app = express();
+const { uploadImagesMulter } = require('./services/helper');
 
-const multer = require("multer");   // for file upload
-
-const storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, "uploads");      // uploads is image upload folder path
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);
-  }
-});
-const maxSize = 10 * 1024 * 1024; // for 10MB
-const allowedFileType = ["image/png", "image/jpg", "image/jpeg"]; // Allowed the files
-const upload = multer({
-        storage: storage,
-        fileFilter: (req, file, cb) => {
-            if (allowedFileType.indexOf(file.mimetype) != -1) {
-              cb(null, true);
-            } 
-            else {
-              cb(null, false);
-              return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-            }
-        },
-        limits: { fileSize: maxSize }
-});
-
-// Route
-app.post("/upload",
-upload.fields([
-  {name: 'images', maxCount: 1},   // images is field name
-  {name: 'images2', maxCount: 1}   // images2 is field name
-]),
- function (req, res, next) {
-    res.json({
-      success: true,
-      payload_files: req.files,
-      payload_body: req.body
-    });
+app.post("/upload", function (req, res) {
+  let uploadPhotos = uploadImagesMulter.fields([
+    {name: 'images', maxCount: 1},   // images is field name
+    {name: 'images2', maxCount: 1}   // images2 is field name
+  ]);
+  uploadPhotos(req, res, function (err) {
+    if(err){
+      let message;
+      if(err?.code=='LIMIT_FILE_SIZE') message = 'File size is toooo large.'; // File size error message
+      if(err.code == 'LIMIT_UNEXPECTED_FILE') message = 'Only 1 file is allowed while browse the file.';  // Browse more than 1 file error message
+      else message = err.message;
+      return res.status(400).send({
+        success: false,
+        message: message,
+        payload_files: {},
+        payload_body: req.body
+      });    
+    } 
+    else {
+      return res.status(200).send({
+        success: true,
+        message: 'Success',
+        payload_files: req.files,
+        payload_body: req.body
+      });  
+    }
+  });    
 });
 
 app.listen(8080, () => console.log("Server started on 8080"));
